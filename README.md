@@ -32,3 +32,33 @@ newslens-v2/
 │   └── package.json
 ├── .gitignore
 └── README.md
+Running it locally
+You'll need Python 3.10+, Node.js 18+, and free API keys from Groq and Tavily.
+
+1. Clone the repo
+Bash
+git clone [https://github.com/sarahreborn2007/NewsLens-News-Classifier.git](https://github.com/sarahreborn2007/NewsLens-News-Classifier.git)
+cd NewsLens-News-Classifier
+2. Start the backend
+Bash
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+Create a .env file inside backend/ with your keys:
+
+Code snippet
+GROQ_API_KEY=your_groq_api_key
+TAVILY_API_KEY=your_tavily_api_key
+Run the server:
+
+Bash
+uvicorn main:app --reload
+3. Start the frontend
+In a second terminal:
+
+Bash
+cd frontend
+npm install
+npm run dev
+Open http://localhost:8080 in your browser.
