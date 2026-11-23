@@ -1,0 +1,392 @@
+/*
+ * Tailwind v4 entry: config lives here, with no tailwind.config.js or PostCSS plugin.
+ * Fonts are loaded via <link> in src/routes/__root.tsx.
+ */
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Newspaper palette */
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-sepia: var(--sepia);
+  --color-stamp: var(--stamp);
+  --color-glass: var(--glass);
+  --color-glass-border: var(--glass-border);
+  --color-verdict-real: var(--verdict-real);
+  --color-verdict-fake: var(--verdict-fake);
+  --color-verdict-unsure: var(--verdict-unsure);
+
+  --font-masthead: "Fraunces", "Playfair Display", Georgia, serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Old Standard TT", Georgia, serif;
+  --font-type: "Special Elite", "Courier New", monospace;
+}
+
+:root {
+  --radius: 0.25rem;
+
+  --paper: oklch(0.945 0.028 85);
+  --paper-deep: oklch(0.89 0.045 80);
+  --ink: oklch(0.2 0.012 60);
+  --ink-soft: oklch(0.38 0.02 60);
+  --sepia: oklch(0.55 0.05 65);
+  --stamp: oklch(0.5 0.17 28);
+  --glass: oklch(0.98 0.015 85 / 0.38);
+  --glass-border: oklch(1 0 0 / 0.6);
+
+  --verdict-real: oklch(0.45 0.1 150);
+  --verdict-fake: oklch(0.5 0.17 28);
+  --verdict-unsure: oklch(0.58 0.12 70);
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: oklch(0.96 0.022 85);
+  --card-foreground: var(--ink);
+  --popover: oklch(0.96 0.022 85);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: var(--paper-deep);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.91 0.035 82);
+  --muted-foreground: oklch(0.45 0.03 65);
+  --accent: oklch(0.9 0.05 80);
+  --accent-foreground: var(--ink);
+  --destructive: var(--stamp);
+  --destructive-foreground: var(--paper);
+  --border: oklch(0.3 0.015 60 / 0.35);
+  --input: oklch(0.3 0.015 60 / 0.4);
+  --ring: var(--stamp);
+  --chart-1: var(--verdict-real);
+  --chart-2: var(--verdict-fake);
+  --chart-3: var(--verdict-unsure);
+  --chart-4: var(--sepia);
+  --chart-5: var(--ink-soft);
+  --sidebar: var(--paper);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--ink);
+  --sidebar-primary-foreground: var(--paper);
+  --sidebar-accent: var(--paper-deep);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  --shadow-glass: 0 30px 80px -20px oklch(0.2 0.02 60 / 0.45), inset 0 1px 0 oklch(1 0 0 / 0.7);
+  --shadow-paper: 0 1px 0 oklch(0.2 0.02 60 / 0.08), 0 18px 40px -24px oklch(0.2 0.02 60 / 0.5);
+  --gradient-sheen: linear-gradient(115deg, transparent 30%, oklch(1 0 0 / 0.55) 48%, transparent 62%);
+  --gradient-vignette: radial-gradient(ellipse at center, transparent 45%, oklch(0.45 0.06 60 / 0.35) 100%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+  ::selection {
+    background: var(--stamp);
+    color: var(--paper);
+  }
+}
+
+/* ---------- Newspaper surfaces ---------- */
+
+@utility newsprint {
+  background-color: var(--paper);
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.35  0 0 0 0 0.27  0 0 0 0 0.15  0 0 0 0.22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+    radial-gradient(ellipse at 20% 10%, oklch(0.97 0.02 85), transparent 60%),
+    radial-gradient(ellipse at 85% 90%, var(--paper-deep), transparent 55%);
+}
+
+@utility vignette {
+  background: var(--gradient-vignette);
+}
+
+@utility glass {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(18px) saturate(1.3);
+  -webkit-backdrop-filter: blur(18px) saturate(1.3);
+  box-shadow: var(--shadow-glass);
+}
+
+@utility shadow-paper {
+  box-shadow: var(--shadow-paper);
+}
+
+@utility rule-double {
+  border-top: 3px double var(--ink);
+  border-bottom: 3px double var(--ink);
+}
+
+/* Broadsheet masthead lettering: heavy Didone, tight set, letterpress ink. */
+@utility masthead-type {
+  font-family: var(--font-masthead);
+  font-weight: 800;
+  font-style: italic;
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 55, "WONK" 1;
+  letter-spacing: -0.015em;
+  text-shadow:
+    0 1px 0 color-mix(in oklab, var(--paper) 70%, transparent),
+    0 3px 10px color-mix(in oklab, var(--ink) 22%, transparent);
+}
+
+/* Thick-thin newspaper rule pair. */
+@utility rule-broadsheet {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  & > span:first-child {
+    height: 1px;
+    background: color-mix(in oklab, var(--ink) 50%, transparent);
+  }
+  & > span:last-child {
+    height: 3px;
+    background: var(--ink);
+  }
+}
+
+/* ---------- Magnifying lens ---------- */
+
+/* Shows its contents only inside a circle around the mouse (--lx, --ly set by the backdrop). */
+@utility lens-reveal {
+  --lens-size: 130px;
+  -webkit-mask-image: radial-gradient(circle var(--lens-size) at var(--lx, -999px) var(--ly, -999px), black 72%, transparent 100%);
+  mask-image: radial-gradient(circle var(--lens-size) at var(--lx, -999px) var(--ly, -999px), black 72%, transparent 100%);
+}
+
+/* Brass-and-glass rim drawn around the revealed circle. */
+@utility lens-ring {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 250px;
+  border-radius: 9999px;
+  transform: translate(calc(var(--lx, -999px) - 50%), calc(var(--ly, -999px) - 50%));
+  border: 3px solid color-mix(in oklab, var(--sepia) 70%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--ink) 25%, transparent),
+    inset 0 0 0 6px color-mix(in oklab, var(--glass-border) 55%, transparent),
+    inset 0 12px 30px -10px color-mix(in oklab, var(--paper) 80%, transparent),
+    0 18px 40px -18px color-mix(in oklab, var(--ink) 45%, transparent);
+  background: radial-gradient(circle at 35% 30%, color-mix(in oklab, var(--paper) 35%, transparent), transparent 55%);
+}
+
+/* Worn rubber-stamp ink: speckled so it looks pressed onto paper. */
+@utility stamp-ink {
+  mix-blend-mode: multiply;
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='s'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.4 1.55'/></filter><rect width='100%' height='100%' filter='url(%23s)'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='s'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.4 1.55'/></filter><rect width='100%' height='100%' filter='url(%23s)'/></svg>");
+}
+
+/* ---------- Ink reveal ---------- */
+
+/* Wet ink spreading into newsprint, then settling sharp. */
+@keyframes ink-bleed {
+  0% {
+    opacity: 0;
+    filter: blur(18px);
+    letter-spacing: 0.16em;
+    transform: translateY(12px) scale(1.04);
+    text-shadow: 0 0 30px color-mix(in oklab, var(--ink) 55%, transparent);
+  }
+  40% {
+    opacity: 0.6;
+    filter: blur(8px);
+    letter-spacing: 0.06em;
+    transform: translateY(5px) scale(1.015);
+    text-shadow: 0 0 18px color-mix(in oklab, var(--ink) 38%, transparent);
+  }
+  75% {
+    opacity: 0.92;
+    filter: blur(2.5px);
+    letter-spacing: 0.005em;
+    transform: translateY(1px) scale(1);
+    text-shadow: 0 0 8px color-mix(in oklab, var(--ink) 22%, transparent);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    letter-spacing: -0.015em;
+    transform: none;
+    text-shadow:
+      0 1px 0 color-mix(in oklab, var(--paper) 70%, transparent),
+      0 3px 10px color-mix(in oklab, var(--ink) 22%, transparent);
+  }
+}
+
+@keyframes rule-draw {
+  0% { transform: scaleX(0); opacity: 0; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+
+@utility animate-ink-bleed {
+  animation: ink-bleed 2.6s cubic-bezier(0.22, 0.75, 0.2, 1) both;
+}
+
+@utility animate-rule-draw {
+  animation: rule-draw 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ink-bleed,
+  .animate-rule-draw {
+    animation: none;
+  }
+  .animate-ink-bleed {
+    opacity: 1;
+    filter: none;
+    letter-spacing: -0.015em;
+    transform: none;
+  }
+}
+
+@utility drop-cap {
+  &::first-letter {
+    font-family: var(--font-display);
+    float: left;
+    font-size: 3.4em;
+    line-height: 0.85;
+    padding: 0.08em 0.1em 0 0;
+    font-weight: 900;
+  }
+}
+
+@utility sheen {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-sheen);
+    transform: translateX(-120%);
+    animation: sheen 3.2s ease-in-out 0.6s infinite;
+    pointer-events: none;
+  }
+}
+
+/* ---------- Animations ---------- */
+
+@keyframes glass-pop {
+  0% { opacity: 0; transform: scale(0.6) translateY(30px); filter: blur(12px); }
+  60% { opacity: 1; transform: scale(1.04) translateY(-4px); filter: blur(0); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes ink-rise {
+  0% { opacity: 0; transform: translateY(14px); filter: blur(6px); letter-spacing: 0.4em; }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+@keyframes stamp-in {
+  0% { opacity: 0; transform: scale(2.6) rotate(-18deg); }
+  55% { opacity: 1; transform: scale(0.92) rotate(-7deg); }
+  75% { transform: scale(1.04) rotate(-8deg); }
+  100% { opacity: 1; transform: scale(1) rotate(-8deg); }
+}
+@keyframes badge-pop {
+  0% { opacity: 0; transform: translateY(16px) scale(0.7); }
+  70% { opacity: 1; transform: translateY(-3px) scale(1.06); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes sheen {
+  0%, 60% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+@keyframes drift {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50% { transform: translateY(-10px) rotate(calc(var(--r, 0deg) + 1deg)); }
+}
+@keyframes press {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+@keyframes splash-out {
+  to { opacity: 0; visibility: hidden; filter: blur(8px); transform: scale(1.06); }
+}
+@keyframes bar-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@utility animate-glass-pop { animation: glass-pop 1s cubic-bezier(0.2, 0.9, 0.25, 1.15) both; }
+@utility animate-ink-rise { animation: ink-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+@utility animate-stamp { animation: stamp-in 0.7s cubic-bezier(0.3, 1.4, 0.5, 1) both; }
+@utility animate-badge-pop { animation: badge-pop 0.55s cubic-bezier(0.3, 1.5, 0.5, 1) both; }
+@utility animate-marquee { animation: marquee 45s linear infinite; }
+@utility animate-drift { animation: drift 9s ease-in-out infinite; }
+@utility animate-press { animation: press 1.4s cubic-bezier(0.6, 0, 0.3, 1) infinite; transform-origin: left; }
+@utility animate-splash-out { animation: splash-out 0.8s ease-in forwards; }
+@utility animate-bar-grow { animation: bar-grow 1s cubic-bezier(0.2, 0.8, 0.2, 1) both; transform-origin: left; }
+@utility animate-fade-up { animation: fade-up 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

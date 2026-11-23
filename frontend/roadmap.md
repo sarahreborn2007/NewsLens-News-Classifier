@@ -1,0 +1,11 @@
+# Roadmap
+- [x] Vintage newspaper design system
+- [x] News Lens home: glass logo intro, tagline, search box, verdict badges (Real vs Fake)
+- [x] Readable broadsheet masthead lettering (heavy Didone + thick-thin rules, no blackletter)
+- [x] Animated ink reveal: slow ink-bleed settle on the "News Lens" name + rule draw-in
+- [x] Wordmark: lightly cursive vintage serif (readable, not full script); lens logo keeps bold blackletter N
+- [x] Calmer, softly blurred newspaper background
+- [x] Paper notes moved to the margins beside the search box (wide screens only)
+- [x] Verdict printed as a newspaper story with a rubber stamp
+- [x] Magnifying-lens effect: background sharpens under the mouse
+- [ ] Connect to user's local FastAPI model at http://127.0.0.1:8000 (confirm endpoint path + request/response fields)
